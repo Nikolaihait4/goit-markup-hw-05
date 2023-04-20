@@ -177,6 +177,10 @@ body {
   /* background: var(--pressed-state-color); */
 }
 
+.studio-navi.current-page {
+  color: var(--pressed-state-color);
+}
+
 .studio-navi.current-page::after,
 .studio-navi:hover::after,
 .studio-navi:focus::after {
@@ -530,8 +534,10 @@ body {
   border-radius: 4px;
   transition: color var(--transition-dur-and-func),
     background-color var(--transition-dur-and-func),
-    box-shadow var(--transition-dur-and-func);
+    box-shadow var(--transition-dur-and-func),
+    border var(--transition-dur-and-func);
 
+  cursor: pointer;
   color: var(--primary-brand-color);
   background-color: var(--light-color);
   font-family: 'Roboto', sans-serif;
@@ -545,7 +551,7 @@ body {
 .button-portfolio:focus {
   color: var(--body-background-color);
   background-color: var(--pressed-state-color);
-  cursor: pointer;
+
   border: 1px solid transparent;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
@@ -618,21 +624,14 @@ div.portfolio-work {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  transform: translate(0, 100%);
+  transform: translate(0, 101%);
   transition: transform var(--transition-dur-and-func);
-  outline: 2px solid tomato;
 
-  padding-left: 32px;
-  padding-right: 32px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding: 40px 32px;
   background-color: var(--primary-brand-color);
-  font-family: 'Roboto';
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5;
   color: var(--light-color);
 }
 
@@ -662,6 +661,7 @@ div.portfolio-work {
 .backdrop {
   position: fixed;
   z-index: 100;
+  opacity: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -682,7 +682,9 @@ div.portfolio-work {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--transition-dur-and-func);
+
   width: 408px;
   height: 576px;
 
